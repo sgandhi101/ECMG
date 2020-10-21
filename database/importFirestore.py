@@ -3,6 +3,7 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from convert import make_json
 
 def import_data(service_account_key_path, data_file, collection_name, name_of_document):
     try:
