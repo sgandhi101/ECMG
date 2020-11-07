@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 import json
 import quandl
+from yfHistoricals import getHistory
 
 quandl.ApiConfig.api_key = 'VP3AoTe9zax2xk-o_Eq-'
 auth_tok = "VP3AoTe9zax2xk-o_Eq-"
@@ -21,7 +22,7 @@ while True:
     except:
         pass
 
-#########ADDITIONAL POTENTIAL##########
+#########ADDITIONAL POTENTIAL TBD THIS LATER##########
 hist = ticker.history(period="5d")
 #print(hist)
 
@@ -33,11 +34,11 @@ while True:
     historicalBool = input("Do you want historical data? Enter yes or no: ")
     historicalBool = historicalBool.lower()
     if(historicalBool=="yes" or historicalBool=="no"):
-        if(historicalBool=="yes"):
+        if historicalBool=="yes":
             startDate = input("What start date? Enter as YEAR-MONTH-DAY: ")
             endDate = input("What end date? Enter as YEAR-MONTH-DAY: ")
-            getHistorical(tickerName, startDate, endDate)
-        break
+            getHistory(tickerName, startDate, endDate)
+            break
         else:
             break
     else:
